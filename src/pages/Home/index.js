@@ -8,19 +8,19 @@ export default function Home() {
   let feedItems = [
     {
       id: '1',
-      image: '../../../img/posts/blackVelvet.jpg',
+      image: require('../../../img/posts/blackVelvet.jpg'),
       name: 'Saulo Tavares',
       description: 'Esse é o Black Velvet',
     },
     {
       id: '2',
-      image: '../../../img/posts/chocolate.jpg',
+      image: require('../../../img/posts/chocolate.jpg'),
       name: 'Rafael Pacheco',
       description: 'Esse é o Chocolate',
     },
     {
       id: '3',
-      image: '../../../img/posts/superb.jpg',
+      image: require('../../../img/posts/superb.jpg'),
       name: 'Rodrigo Ramos',
       description: 'Esse é o Superb',
     }
@@ -61,7 +61,7 @@ export default function Home() {
       </View>
 
       <FlatList
-        data={feedItems2}
+        data={feedItems}
         renderItem={({ item }) => <FeedItem data={item} />}
       />
     </View>

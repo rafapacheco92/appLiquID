@@ -15,23 +15,23 @@ export function FeedItem({ data }) {
 
   return (
     <Pressable onPress={handlePlayer}>
-      {/* <Image
-        source={{ uri: data.image }}
+      <Image
+        source={ data.image }
         style={{ width: '100%', height: heightScreen }}
-      /> */}
+      />
       <View style={[styles.info, { bottom: 100 }]}>
         <Text style={styles.name}>{data.name}</Text>
         <Text numberOfLines={2} style={styles.description}>{data.description}</Text>
       </View>
 
-      <Video
+      {/* <Video
         ref={video}
         style={{ width: '100%', height: heightScreen }}
         source={{ uri: data.video }}
         resizeMode="cover"
         isLooping
         onPlaybackStatusUpdate={status => setStatus(() => status)}
-      />
+      /> */}
     </Pressable>
   );
 }
