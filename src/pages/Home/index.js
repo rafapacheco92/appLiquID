@@ -1,7 +1,9 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, StatusBar, Platform, FlatList } from 'react-native';
+import { View, Text, StyleSheet, Dimensions, TouchableOpacity, StatusBar, Platform, FlatList } from 'react-native';
 
 import { FeedItem } from '../../components/feedItem'
+
+const { height: heightScreen } = Dimensions.get("screen")
 
 export default function Home() {
 
@@ -43,6 +45,10 @@ export default function Home() {
       <FlatList
         data={feedItems}
         renderItem={({ item }) => <FeedItem data={item} />}
+        snapToInterval={heightScreen}
+        scrollEventThrottle={200}
+        decelerationRate={"fast"}
+        showsVerticalScrollIndicator={false}
       />
     </View>
   );

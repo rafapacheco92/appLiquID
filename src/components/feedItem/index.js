@@ -1,5 +1,7 @@
 import React, { useRef, useState } from 'react';
-import { View, Text, StyleSheet, Pressable, Image, Dimensions } from 'react-native';
+import { View, Text, StyleSheet, Platform, Pressable, Image, Dimensions, TouchableOpacity } from 'react-native';
+
+import { Ionicons } from '@expo/vector-icons'
 
 const { height: heightScreen } = Dimensions.get("screen")
 
@@ -7,14 +9,31 @@ export function FeedItem({ data }) {
 
 
   return (
-    <Pressable onPress={handlePlayer}>
+    <Pressable style={styles.press}>
+
       <Image
-        source={ data.image }
+        source={data.image}
         style={{ width: '100%', height: heightScreen }}
       />
-      <View style={[styles.info, { bottom: 100 }]}>
+      <View style={[styles.info, { bottom: 80 }]}>
         <Text style={styles.name}>{data.name}</Text>
         <Text numberOfLines={2} style={styles.description}>{data.description}</Text>
+      </View>
+
+      <View style={styles.actions}>
+        <TouchableOpacity style={styles.actionButton}>
+          <Ionicons name="heart" size={35} color="#000" />
+          <Text style={styles.actionText}>19.5K</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity style={styles.actionButton}>
+          <Ionicons name="chatbubble-ellipses" size={35} color="#000" />
+          <Text style={styles.actionText}>27</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity style={styles.actionButton}>
+          <Ionicons name="bookmark" size={35} color="#000" />
+        </TouchableOpacity>
       </View>
 
     </Pressable>
@@ -22,6 +41,9 @@ export function FeedItem({ data }) {
 }
 
 const styles = StyleSheet.create({
+  press: {
+    height: heightScreen,
+  },
   info: {
     position: 'absolute',
     zIndex: 99,
@@ -29,9 +51,33 @@ const styles = StyleSheet.create({
     padding: 8
   },
   name: {
-    color: "#FFF"
+    color: "#333",
+    fontWeight: "bold",
+    marginBottom: 4,
+    textShadowColor: 'rgba(255,255,255,0.9)',
+    textShadowOffset: { width: -1, height: 1.5 },
+    textShadowRadius: 8
   },
   description: {
-    color: "#FFF"
-  }
+    color: "#333",
+    marginRight: 14,
+    textShadowColor: 'rgba(255,255,255,0.2)',
+    textShadowOffset: { width: -1, height: 1.5 },
+    textShadowRadius: 8
+  },
+  actions: {
+    position: 'absolute',
+    zIndex: 99,
+    right: 10,
+    bottom: Platform.OS === 'android' ? 120 : 170,
+    gap: 8
+  },
+  actionText: {
+    textAlign: 'center',
+    color: '#000',
+    fontWeight: 'bold',
+    textShadowColor: 'rgba(255,255,255,0.2)',
+    textShadowOffset: { width: -1, height: 1.5 },
+    textShadowRadius: 8
+  },
 })
