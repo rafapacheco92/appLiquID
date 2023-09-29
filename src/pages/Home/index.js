@@ -12,19 +12,22 @@ export default function Home() {
       id: '1',
       image: require('../../../img/posts/blackVelvet.jpg'),
       name: 'Saulo Tavares',
-      description: 'Esse é o Black Velvet',
+      drink: 'BLACK VELVET',
+      description: 'Esse é o Black VelvetEsse é o Black VelvetEsse é o Black VelvetEsse é o Black VelvetEsse é o Black VelvetEsse é o Black VelvetEsse é o Black VelvetEsse é o Black VelvetEsse é o Black Velvet',
     },
     {
       id: '2',
       image: require('../../../img/posts/chocolate.jpg'),
       name: 'Rafael Pacheco',
-      description: 'Esse é o Chocolate',
+      drink: 'CHOCOLATE',
+      description: 'Esse é o ChocolateEsse é o ChocolateEsse é o ChocolateEsse é o ChocolateEsse é o ChocolateEsse é o ChocolateEsse é o ChocolateEsse é o ChocolateEsse é o Chocolate',
     },
     {
       id: '3',
       image: require('../../../img/posts/superb.jpg'),
       name: 'Rodrigo Ramos',
-      description: 'Esse é o Superb',
+      drink: 'SUPERB',
+      description: 'Esse é o SuperbEsse é o SuperbEsse é o SuperbEsse é o SuperbEsse é o SuperbEsse é o SuperbEsse é o SuperbEsse é o SuperbEsse é o SuperbEsse é o SuperbEsse é o Superb',
     }
   ]
 
