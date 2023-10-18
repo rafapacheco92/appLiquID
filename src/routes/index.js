@@ -43,9 +43,9 @@ export function Routes() {
         options={{
           tabBarIcon: ({ focused, size, color }) => {
             if (focused) {
-              return <Ionicons name="search" size={size} color={color} />
+              return <Ionicons name="newspaper" size={size} color={color} />
             } else {
-              return <Ionicons name="search-outline" size={size} color={color} />
+              return <Ionicons name="newspaper-outline" size={size} color={color} />
             }
           }
         }}
@@ -67,9 +67,9 @@ export function Routes() {
         options={{
           tabBarIcon: ({ focused, size, color }) => {
             if (focused) {
-              return <Ionicons name="ios-chatbubble-ellipses" size={size} color={color} />
+              return <Ionicons name="people" size={size} color={color} />
             } else {
-              return <Ionicons name="ios-chatbubble-ellipses-outline" size={size} color={color} />
+              return <Ionicons name="people-outline" size={size} color={color} />
             }
           }
         }}
