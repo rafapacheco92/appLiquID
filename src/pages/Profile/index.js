@@ -28,7 +28,7 @@ export default function Profile() {
           style={{ width: 180, height: 180 }}
         />
         <View style={styles.icons}>
-          <Ionicons name="store" size={30} color={'#8a08bb'} />
+          <Ionicons name="receipt-outline" size={25} color={'#8a08bb'} />
           <Ionicons name="wine-outline" size={30} color={'#8a08bb'} />
           <Ionicons name="notifications-outline" size={30} color={'#8a08bb'} />
         </View>
@@ -42,7 +42,7 @@ export default function Profile() {
         }],
           { useNativeDriver: false })}
       >
-        <View style={styles.box}></View>
+        <View style={styles.topBox}></View>
         <View style={styles.box}></View>
         <View style={styles.box}></View>
         <View style={styles.box}></View>
@@ -55,16 +55,22 @@ export default function Profile() {
 
 const styles = StyleSheet.create({
   container:{
-    backgroundColor: '#333'
+    backgroundColor: '#111'
   },
   header: {
-    backgroundColor: '#333',
+    backgroundColor: '#111',
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
     marginTop: -50,
     marginBottom: -30,
     paddingRight: 30,
+  },
+  topBox: {
+    height: 300,
+    backgroundColor: '#222',
+    margin: 7,
+    borderRadius: 5
   },
   box: {
     height: 300,
@@ -82,6 +88,6 @@ const styles = StyleSheet.create({
   },
   icons: {
     flexDirection: 'row',
-    gap: 10
+    gap: 15
   }
 });
