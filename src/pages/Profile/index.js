@@ -7,7 +7,7 @@ export default function Profile() {
   
   const [scrollY, setScrollY] = useState(new Animated.Value(0));
   return (
-    <SafeAreaView>
+    <SafeAreaView style={styles.container}>
       <Animated.View style={[
         styles.header,
         {
@@ -23,17 +23,15 @@ export default function Profile() {
           })
         }
       ]}>
-        <Ionicons name="home" size={30} color={"#FFF"} />
         <Animated.Image
-          source={require('./color_transparent.png')}
-          style={{ width: 300, height: 300 }}
-          resizeMode='contain'
+          source={require('./img/color_transparent.png')}
+          style={{ width: 180, height: 180 }}
         />
-        <Image
-          source={require('./color_with_background.jpg')}
-          style={{ width: 35, height: 150 }}
-          resizeMode='contain'
-        />
+        <View style={styles.icons}>
+          <Ionicons name="store" size={30} color={'#8a08bb'} />
+          <Ionicons name="wine-outline" size={30} color={'#8a08bb'} />
+          <Ionicons name="notifications-outline" size={30} color={'#8a08bb'} />
+        </View>
       </Animated.View>
       <ScrollView
         scrollEventThrottle={16}
@@ -56,15 +54,17 @@ export default function Profile() {
 }
 
 const styles = StyleSheet.create({
+  container:{
+    backgroundColor: '#333'
+  },
   header: {
-    backgroundColor: 'black',
+    backgroundColor: '#333',
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    paddingLeft: 10,
-    paddingRight: 10,
-    borderBottomWidth: 2,
-    borderBottomColor: '#FFF',
+    marginTop: -50,
+    marginBottom: -30,
+    paddingRight: 30,
   },
   box: {
     height: 300,
@@ -79,5 +79,9 @@ const styles = StyleSheet.create({
     margin: 20,
     borderRadius: 10,
     height: 50
+  },
+  icons: {
+    flexDirection: 'row',
+    gap: 10
   }
 });
