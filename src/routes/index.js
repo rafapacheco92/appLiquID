@@ -18,7 +18,7 @@ export function Routes() {
         headerShown: false,
         tabBarShowLabel: false,
         tabBarStyle: {
-          backgroundColor: '#000',
+          backgroundColor: '#111',
           borderTopWidth: 0
         },
         tabBarActiveTintColor: "#bf00ff"

@@ -7,7 +7,7 @@ export default function ButtonNew({ size }) {
   return (
     <View style={styles.container}>
       <View style={styles.inner}>
-        <Entypo name="plus" size={size} color='#FFF' />
+        <Entypo name="plus" size={size} color='#FFF' backgroundColor='#111'/>
       </View>
     </View>
   );
@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
   container: {
   },
   inner: {
-    backgroundColor: "#000",
+    backgroundColor: "#111",
     padding: 7,
     paddingLeft: 6,
     paddingRight: 6,

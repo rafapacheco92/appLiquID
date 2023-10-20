@@ -1,49 +1,17 @@
 import React from 'react';
 import { View, Text, StyleSheet, Dimensions, TouchableOpacity, StatusBar, Platform, FlatList } from 'react-native';
-
+import { useMeuContexto } from '../../contexts/MeuContexto';
 import { FeedItem } from '../../components/feedItem'
 
 const { height: heightScreen } = Dimensions.get("screen")
 
 export default function Home() {
 
-  let feedItems = [
-    {
-      id: '1',
-      image: require('../../../img/posts/blackVelvet.jpg'),
-      name: 'Saulo Tavares',
-      drink: 'BLACK VELVET',
-      description: 'Esse é o Black VelvetEsse é o Black VelvetEsse é o Black VelvetEsse é o Black VelvetEsse é o Black VelvetEsse é o Black VelvetEsse é o Black VelvetEsse é o Black VelvetEsse é o Black Velvet',
-    },
-    {
-      id: '2',
-      image: require('../../../img/posts/chocolate.jpg'),
-      name: 'Rafael Pacheco',
-      drink: 'CHOCOLATE',
-      description: 'Esse é o ChocolateEsse é o ChocolateEsse é o ChocolateEsse é o ChocolateEsse é o ChocolateEsse é o ChocolateEsse é o ChocolateEsse é o ChocolateEsse é o Chocolate',
-    },
-    {
-      id: '3',
-      image: require('../../../img/posts/superb.jpg'),
-      name: 'Rodrigo Ramos',
-      drink: 'SUPERB',
-      description: 'Esse é o SuperbEsse é o SuperbEsse é o SuperbEsse é o SuperbEsse é o SuperbEsse é o SuperbEsse é o SuperbEsse é o SuperbEsse é o SuperbEsse é o SuperbEsse é o Superb',
-    }
-  ]
+  const { feedItems } = useMeuContexto();
 
 
   return (
     <View style={styles.container}>
-
-      <View style={styles.labels}>
-        <TouchableOpacity>
-          <Text style={[styles.labelText, { color: '#DDD' }]}>Seguindo</Text>
-        </TouchableOpacity>
-        <TouchableOpacity>
-          <Text style={[styles.labelText, { color: '#FFF' }]}>O que acontece</Text>
-          <View style={styles.indicator}></View>
-        </TouchableOpacity>
-      </View>
 
       <FlatList
         data={feedItems}

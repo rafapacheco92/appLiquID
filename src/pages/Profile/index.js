@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { StyleSheet, Image, Text, View, SafeAreaView, ScrollView, Animated, TouchableOpacity, Modal } from 'react-native';
-
+import { StyleSheet, Image, Text, View, SafeAreaView, ScrollView, Animated, TouchableOpacity, Modal, FlatList } from 'react-native';
+import { ProfilePost } from '../../components/profilePost'
 import { Ionicons } from '@expo/vector-icons'
 
 export default function Profile() {
@@ -42,12 +42,42 @@ export default function Profile() {
         }],
           { useNativeDriver: false })}
       >
-        <View style={styles.topBox}></View>
-        <View style={styles.box}></View>
-        <View style={styles.box}></View>
-        <View style={styles.box}></View>
-        <View style={styles.box}></View>
-        <View style={styles.box}></View>
+        <View style={styles.topBox}>
+          <View style={styles.topInfo}>
+            <Image
+              style={styles.ftPerfil}
+              source={require('./img/perfilrafa.jpg')}
+            />
+            <View style={styles.stats}>
+              <View style={styles.statContainer}>
+                <Text style={styles.number}>5</Text>
+                <Text style={styles.stat}>Posts</Text>
+              </View>
+              <View style={styles.statContainer}>
+                <Text style={styles.number}>527</Text>
+                <Text style={styles.stat}>Seguidores</Text>
+              </View>
+              <View style={styles.statContainer}>
+                <Text style={styles.number}>312</Text>
+                <Text style={styles.stat}>Seguindo</Text>
+              </View>
+            </View>
+          </View>
+          <View style={styles.bottomInfo}>
+            <Text style={styles.name}>Rafael Pacheco</Text>
+            <Text style={styles.desc}>Da trilha ao balcão, uma vida movida pela aventura e pelos sabores únicos.</Text>
+            <TouchableOpacity style={styles.editButton}>
+              <Text style={styles.editText}>Editar perfil</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+        <View style={styles.postBox}>
+        <FlatList
+        data={ProfilePost}
+        renderItem={({ item }) => <ProfilePost data={item} />}
+        showsVerticalScrollIndicator={false}
+      />
+        </View>
       </ScrollView>
     </SafeAreaView>
   );
@@ -55,7 +85,8 @@ export default function Profile() {
 
 const styles = StyleSheet.create({
   container:{
-    backgroundColor: '#111'
+    backgroundColor: '#111',
+    flex: 1
   },
   header: {
     backgroundColor: '#111',
@@ -67,13 +98,15 @@ const styles = StyleSheet.create({
     paddingRight: 30,
   },
   topBox: {
-    height: 300,
+    height: 250,
     backgroundColor: '#222',
     margin: 7,
-    borderRadius: 5
+    borderRadius: 5,
+    padding: 15,
+    gap: 15
   },
-  box: {
-    height: 300,
+  postBox: {
+    height: '100%',
     backgroundColor: '#ddd',
     margin: 7,
     borderRadius: 5
@@ -89,5 +122,58 @@ const styles = StyleSheet.create({
   icons: {
     flexDirection: 'row',
     gap: 15
+  },
+  topInfo: {
+    flexDirection: 'row',
+    gap: 50,
+    alignItems: 'center',
+  },
+  bottomInfo:{
+    gap: 5
+  },
+  ftPerfil: {
+    width: 85,
+    height: 85,
+    borderRadius: '50%',
+    borderWidth: 1,
+    borderColor: '#bf00ff'
+  },
+  name: {
+    color: '#FFF',
+    fontWeight: 'bold',
+    fontSize: 14
+  },
+  desc: {
+    color: '#FFF',
+    fontSize: 14,
+    width: '70%'
+  },
+  stats: {
+    flexDirection: 'row',
+    gap: 35
+  },
+  statContainer: {
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  number: {
+    color: '#FFF',
+    fontWeight: 'bold',
+    fontSize: 20
+  },
+  stat: {
+    color: '#FFF',
+    fontSize: 12
+  },
+  editButton: {
+    marginTop: 30,
+    backgroundColor: '#111',
+    padding: 10,
+    borderRadius: 5,
+  },
+  editText: {
+    color: '#FFF',
+    textAlign: 'center',
+    fontWeight: 'bold',
   }
 });
