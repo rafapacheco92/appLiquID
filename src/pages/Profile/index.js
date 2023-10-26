@@ -4,7 +4,52 @@ import { ProfilePost } from '../../components/profilePost'
 import { Ionicons } from '@expo/vector-icons'
 
 export default function Profile() {
-  
+  let feedItemsUm = [
+    {
+      id: '1',
+      image: require('./img/blackVelvet.jpg'),
+      name: 'Saulo Tavares',
+      drink: 'BLACK VELVET',
+      description: 'Esse é o Black VelvetEsse é o Black VelvetEsse é o Black VelvetEsse é o Black VelvetEsse é o Black VelvetEsse é o Black VelvetEsse é o Black VelvetEsse é o Black VelvetEsse é o Black Velvet',
+    },
+    {
+      id: '2',
+      image: require('./img/chocolate.jpg'),
+      name: 'Rafael Pacheco',
+      drink: 'CHOCOLATE',
+      description: 'Esse é o ChocolateEsse é o ChocolateEsse é o ChocolateEsse é o ChocolateEsse é o ChocolateEsse é o ChocolateEsse é o ChocolateEsse é o ChocolateEsse é o Chocolate',
+    },
+    {
+      id: '3',
+      image: require('./img/superb.jpg'),
+      name: 'Rodrigo Ramos',
+      drink: 'SUPERB',
+      description: 'Esse é o SuperbEsse é o SuperbEsse é o SuperbEsse é o SuperbEsse é o SuperbEsse é o SuperbEsse é o SuperbEsse é o SuperbEsse é o SuperbEsse é o SuperbEsse é o Superb',
+    },
+    {
+      id: '4',
+      image: require('./img/blackVelvet.jpg'),
+      name: 'Saulo Tavares',
+      drink: 'BLACK VELVET',
+      description: 'Esse é o Black VelvetEsse é o Black VelvetEsse é o Black VelvetEsse é o Black VelvetEsse é o Black VelvetEsse é o Black VelvetEsse é o Black VelvetEsse é o Black VelvetEsse é o Black Velvet',
+    },
+    {
+      id: '5',
+      image: require('./img/chocolate.jpg'),
+      name: 'Rafael Pacheco',
+      drink: 'CHOCOLATE',
+      description: 'Esse é o ChocolateEsse é o ChocolateEsse é o ChocolateEsse é o ChocolateEsse é o ChocolateEsse é o ChocolateEsse é o ChocolateEsse é o ChocolateEsse é o Chocolate',
+    },
+    {
+      id: '6',
+      image: require('./img/superb.jpg'),
+      name: 'Rodrigo Ramos',
+      drink: 'SUPERB',
+      description: 'Esse é o SuperbEsse é o SuperbEsse é o SuperbEsse é o SuperbEsse é o SuperbEsse é o SuperbEsse é o SuperbEsse é o SuperbEsse é o SuperbEsse é o SuperbEsse é o Superb',
+    }
+  ]
+
+
   const [scrollY, setScrollY] = useState(new Animated.Value(0));
   return (
     <SafeAreaView style={styles.container}>
@@ -71,13 +116,14 @@ export default function Profile() {
             </TouchableOpacity>
           </View>
         </View>
-        <View style={styles.postBox}>
+        <ScrollView style={styles.postBox}>
         <FlatList
-        data={ProfilePost}
+        data={feedItems}
         renderItem={({ item }) => <ProfilePost data={item} />}
-        showsVerticalScrollIndicator={false}
+        // showsHorizontalScrollIndicator={false}
+        // horizontal={true}
       />
-        </View>
+        </ScrollView>
       </ScrollView>
     </SafeAreaView>
   );
@@ -109,7 +155,7 @@ const styles = StyleSheet.create({
     height: '100%',
     backgroundColor: '#ddd',
     margin: 7,
-    borderRadius: 5
+    borderRadius: 5,
   },
   button: {
     justifyContent: 'center',
@@ -175,5 +221,5 @@ const styles = StyleSheet.create({
     color: '#FFF',
     textAlign: 'center',
     fontWeight: 'bold',
-  }
+  },
 });
